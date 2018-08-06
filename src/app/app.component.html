@@ -1,8 +1,31 @@
 <div style="text-align:center">
   <h1>
-    Bienvenido a Picadito Builder!
+    Picadito Builder
   </h1>
-  <h2>Sitio en construcción</h2>
-  <img width="300" alt="Angular Logo" src="assets/bob.png">
-</div>
 
+  <form>
+    <label for="playerName">Player Name:</label>
+    <input type="text" [(ngModel)]="newPlayer.name" (keyup.enter)="addNewPlayer()" name="name" id="playerName">
+    <button type="button" (click)="addNewPlayer()">Add</button>
+  </form>
+  <div class="players-list">
+    <ol>
+      <li *ngFor="let player of players">{{player.name}}</li>
+    </ol>
+    <button type="button" (click)="generateTeams()">Go!</button>
+  </div>
+
+  <div *ngIf="team1.length" class="players-list">
+    <h4>Team 1:</h4>
+    <ol>
+      <li *ngFor="let player of team1">{{player.name}}</li>
+    </ol>
+  </div>
+
+  <div *ngIf="team2.length" class="players-list">
+    <h4>Team 2:</h4>
+    <ol>
+      <li *ngFor="let player of team2">{{player.name}}</li>
+    </ol>
+  </div>
+</div>

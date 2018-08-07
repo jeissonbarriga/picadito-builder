@@ -38,7 +38,7 @@ export class AppComponent {
   }
 
   assignTeam(player: Player, remaining: number) {
-    if (remaining % 2 === 0) {
+    if (remaining % 2 !== 0) {
       this.team1.push(player);
     } else {
       this.team2.push(player);

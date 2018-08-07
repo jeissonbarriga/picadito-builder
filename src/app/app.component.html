@@ -1,31 +1,41 @@
-<div style="text-align:center">
+<div class="center-text">
   <h1>
     Picadito Builder
   </h1>
 
-  <form>
-    <label for="playerName">Player Name:</label>
-    <input type="text" [(ngModel)]="newPlayer.name" (keyup.enter)="addNewPlayer()" name="name" id="playerName">
-    <button type="button" (click)="addNewPlayer()">Add</button>
+  <form id="player-form" class="form-inline">
+    <div class="form-group" style="margin: auto">
+      <input type="text" class="form-control" [(ngModel)]="newPlayer.name" (keyup.enter)="addNewPlayer()" name="name" id="playerName"
+        placeholder="Player Name" autofocus>
+      <div class="input-group-append">
+        <button type="button" (click)="addNewPlayer()" class="btn btn-secondary">
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+    </div>
   </form>
-  <div class="players-list">
+  <div class="players-list centered">
     <ol>
       <li *ngFor="let player of players">{{player.name}}</li>
     </ol>
-    <button type="button" (click)="generateTeams()">Go!</button>
   </div>
+  <button type="button" (click)="generateTeams()" class="btn btn-secondary">
+    <i class="fas fa-dice"></i>
+  </button>
 
-  <div *ngIf="team1.length" class="players-list">
-    <h4>Team 1:</h4>
-    <ol>
-      <li *ngFor="let player of team1">{{player.name}}</li>
-    </ol>
-  </div>
+  <div class="centered">
+    <div *ngIf="team1.length" class="col-md-6 team-list">
+      <h4>Team 1</h4>
+      <ol>
+        <li *ngFor="let player of team1">{{player.name}}</li>
+      </ol>
+    </div>
 
-  <div *ngIf="team2.length" class="players-list">
-    <h4>Team 2:</h4>
-    <ol>
-      <li *ngFor="let player of team2">{{player.name}}</li>
-    </ol>
+    <div *ngIf="team2.length" class="col-md-6 team-list">
+      <h4>Team 2</h4>
+      <ol>
+        <li *ngFor="let player of team2">{{player.name}}</li>
+      </ol>
+    </div>
   </div>
 </div>

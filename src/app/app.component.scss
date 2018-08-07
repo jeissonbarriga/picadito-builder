@@ -1,4 +1,17 @@
+#player-form {
+  max-width: 500px;
+  margin: auto;
+}
+
 .players-list {
   width: 200px;
-  margin: 0 auto;
+}
+
+.team-list {
+  max-width: 200px;
+  display: inline-block;
+}
+
+.centered {
+  margin: auto;
 }

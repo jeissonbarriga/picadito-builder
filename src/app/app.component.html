@@ -4,11 +4,16 @@
   </h1>
 
   <form id="player-form" class="form-inline">
-    <div class="form-group" style="margin: auto">
-      <input type="text" class="form-control" [(ngModel)]="newPlayer.name" (keyup.enter)="addNewPlayer()" name="name" id="playerName"
-        placeholder="Player Name" autofocus>
+    <div id="playerNameField" class="form-group">
+      <input #playerNameInput
+        type="text" class="form-control" 
+        placeholder="Player Name"
+        [(ngModel)]="newPlayer.name"
+        (keyup.enter)="addNewPlayer()"
+        name="name" autofocus>
       <div class="input-group-append">
-        <button type="button" (click)="addNewPlayer()" class="btn btn-secondary">
+        <button type="button" class="btn btn-secondary"
+          (click)="addNewPlayer(); playerNameInput.focus()">
           <i class="fas fa-plus"></i>
         </button>
       </div>
